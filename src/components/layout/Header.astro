@@ -1,0 +1,42 @@
+---
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+import LanguageSwitcher from '../ui/LanguageSwitcher.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const navigationLinks = [
+    { href: "#hero", label: t('nav.home') },
+    { href: "#experience", label: t('nav.experience') }
+];
+---
+
+<header class="flex justify-between items-center py-5 border-b-2 border-[#b30000] mb-10 flex-wrap gap-3">
+    <div class="font-bold text-xl text-[#ff3333]">
+        <svg
+            class="w-6 h-6 fill-[#ff3333] align-middle inline mr-2.5"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-label="Arch Linux Logo"
+        >
+            <path
+                d="M11.96 1.156L.578 21.656h2.797l2.875-5.328h11.453l2.922 5.328h2.797L11.96 1.156zm-.03 5.407l4.062 7.562H7.836l4.094-7.562z"
+            ></path>
+        </svg>
+        ~/dev/portfolio
+    </div>
+    <div class="flex items-center gap-5">
+        <nav class="flex gap-5" aria-label="Main navigation">
+            {navigationLinks.map((link) => (
+                <a 
+                    href={link.href} 
+                    class="text-[#707880] text-sm transition-all duration-300 hover:text-[#ff3333] hover:underline"
+                >
+                    {link.label}
+                </a>
+            ))}
+        </nav>
+        <LanguageSwitcher />
+    </div>
+</header>
+

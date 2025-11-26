@@ -1,0 +1,117 @@
+{
+  "site": {
+    "title": "brandon@portfolio ~",
+    "description": "Portfolio de Brandon Quintero Mendoza - Desarrollador Full Stack con +4 años de experiencia"
+  },
+  "nav": {
+    "home": "./inicio",
+    "experience": "./experiencia",
+    "contact": "./contacto"
+  },
+  "hero": {
+    "command": "cat /home/brandon/profile.txt",
+    "bio": [
+      "> Desarrollador de Software e Ingeniero de Ciberseguridad | +4 años de experiencia",
+      "> Esta doble formación me brinda una perspectiva única—no solo construyo aplicaciones",
+      "> escalables y de alto rendimiento; las diseño con seguridad en el núcleo desde el inicio.",
+      "> Aunque mi base está en ciberseguridad, mi enfoque actual es el desarrollo de software,",
+      "> donde integro ambos campos para entregar soluciones robustas y seguras.",
+      "> Actualmente ejecutando: pacman -Syu innovation && npm run build-future"
+    ]
+  },
+  "experience": {
+    "title": "$ cat ./experiencia.log"
+  },
+  "social": {
+    "cv": {
+      "command": "$ curl --language es_ES curriculum.pdf",
+      "status": "[PDF]",
+      "title": "Descargar CV",
+      "file": "/CV-ES-Brandon.pdf"
+    },
+    "linkedin": {
+      "command": "$ ./linkedin.sh",
+      "status": "[EXEC]",
+      "title": "LinkedIn"
+    },
+    "email": {
+      "command": "$ mail -s \"Contacto\"",
+      "status": "[SEND]",
+      "title": "Enviar correo"
+    },
+    "github": {
+      "command": "$ git remote show",
+      "status": "[REPO]",
+      "title": "GitHub"
+    },
+    "blog": {
+      "command": "$ exec ./bitskingdom/blog.html",
+      "status": "[HTML]",
+      "title": "Blog",
+      "url": "https://bitskingdom.com/blog/author/brandon/"
+    }
+  },
+  "footer": {
+    "madeWith": "Hecho con",
+    "uptime": "Tiempo activo"
+  },
+  "jobs": {
+    "job1": {
+      "title": "Desarrollador Mobile & Analista de Datos",
+      "company": "Bits Kingdom (Remoto, EE.UU.)",
+      "period": "[Abril 2024 - Diciembre 2025]",
+      "technologies": ["React Native", "Python", "Apache Airflow", "Git", "GitHub", "Git Flow", "ETL", "Cloudflare", "DDoS Mitigation"],
+      "description": [
+        "<strong>Desarrollo Móvil:</strong> Diseñé e implementé nuevas funcionalidades en aplicaciones móviles utilizando React Native, enfocándome en la optimización del rendimiento y la experiencia de usuario (UX/UI).",
+        "",
+        "<strong>Ingeniería de Datos:</strong> Actué como analista de datos, construyendo y orquestando tuberías de datos (ETL) automatizadas y escalables mediante Python y Apache Airflow, asegurando la integridad y disponibilidad de la información para la toma de decisiones.",
+        "",
+        "<strong>Calidad y DevOps:</strong> Establecí estándares de calidad de código mediante una gestión avanzada de Git y GitHub. Implementé estrategias de ramificación (Git Flow), revisiones de código exhaustivas y flujos de trabajo colaborativos para sincronizar equipos distribuidos.",
+        "",
+        "<strong>Mitigación de Incidente Crítico (DDoS):</strong> Respondí inmediatamente para solucionar un ataque DDoS en curso. Apliqué técnicas de hacking y análisis de tráfico para identificar el vector de ataque y configuré Cloudflare on-the-fly (Modo I'm Under Attack, Rate Limiting y WAF), logrando mitigar el 99% del tráfico malicioso y restablecer la disponibilidad del servicio en minutos."
+      ]
+    },
+    "job2": {
+      "title": "Consultor Técnico y Mentor",
+      "company": "Freelance",
+      "period": "[Septiembre 2024 - Marzo 2025]",
+      "technologies": ["Node.js", "React", "TypeScript", "Git", "Clean Architecture", "Design Patterns"],
+      "description": [
+        "<strong>Consultoría:</strong> Proveí soluciones técnicas a medida para diversos clientes, enfocándome en la refactorización de código heredado para mejorar su mantenibilidad y escalabilidad.",
+        "",
+        "<strong>Mentoría:</strong> Lideré la capacitación de desarrolladores junior, instruyéndoles en arquitecturas limpias, patrones de diseño y el uso profesional de sistemas de control de versiones.",
+        "",
+        "<strong>Optimización:</strong> Analicé y mejoré flujos de trabajo de desarrollo, reduciendo la deuda técnica y acelerando los tiempos de entrega."
+      ]
+    },
+    "job3": {
+      "title": "Full-stack Developer",
+      "company": "DisruptiveIT",
+      "period": "[Abril 2022 - Julio 2024]",
+      "technologies": ["ReactJS", "Redux", "Node.js", "Express", "Prisma", "Docker", "CI/CD", "DDoS Protection"],
+      "description": [
+        "<strong>Modernización de Sistemas:</strong> Lideré la migración de plataformas legadas hacia arquitecturas modernas de SPA (Single Page Application) utilizando ReactJS y Redux, mejorando significativamente la velocidad y reactividad de las interfaces.",
+        "",
+        "<strong>Backend y Microservicios:</strong> Desarrollé servicios robustos para aplicaciones internacionales (como Mesadoko) usando Node.js, Express y Prisma, implementando una arquitectura de microservicios modular.",
+        "",
+        "<strong>Infraestructura Segura:</strong> Fortalecí la seguridad de las aplicaciones mediante la implementación de protecciones contra ataques DDoS y configuré pipelines de CI/CD para despliegues automatizados y seguros."
+      ]
+    },
+    "job4": {
+      "title": "Líder Técnico",
+      "company": "Arrendamientos del Norte",
+      "period": "[Abril 2022 - Diciembre 2023]",
+      "technologies": ["RESTful API", "React", "React Native", "Node.js", "SQL", "Real-time Sync"],
+      "description": [
+        "<strong>Gestión de Producto:</strong> Dirigí el ciclo de vida completo del desarrollo de RCService, una solución administrativa integral para la gestión inmobiliaria.",
+        "",
+        "<strong>Desarrollo Multi-plataforma:</strong> Construí el ecosistema completo: una API RESTful escalable, un panel web administrativo y una aplicación móvil nativa, asegurando la sincronización en tiempo real entre todas las plataformas."
+      ]
+    }
+  },
+  "lang": {
+    "switch": "$ locale-gen en_US",
+    "current": "ES"
+  }
+}
+

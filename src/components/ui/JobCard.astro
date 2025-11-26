@@ -1,0 +1,102 @@
+---
+import TechTag from './TechTag.astro';
+
+interface Props {
+    title: string;
+    company: string;
+    period: string;
+    technologies: string[];
+}
+
+const { title, company, period, technologies } = Astro.props;
+const uniqueId = `job-${Math.random().toString(36).substr(2, 9)}`;
+---
+
+<article class="job-card bg-[#1a1a1a] border border-[#333] p-5 transition-all duration-200 relative hover:border-[#b30000] hover:translate-x-1.5">
+    <div class="flex justify-between mb-2.5 flex-wrap gap-2">
+        <h3 class="font-bold text-[#c5c8c6] text-lg">
+            {title} @ {company}
+        </h3>
+        <span class="text-[#707880] text-[0.85rem]">{period}</span>
+    </div>
+    
+    <input type="checkbox" id={uniqueId} class="toggle-checkbox" />
+    
+    <div class="job-content-wrapper">
+        <div class="job-content text-[0.95rem] mb-4 text-[#aaa] prose prose-invert prose-sm max-w-none">
+            <slot />
+        </div>
+        <div class="fade-overlay"></div>
+    </div>
+
+    <label for={uniqueId} class="toggle-label text-[#ff3333] hover:text-[#ff5555] text-sm font-mono flex items-center gap-2 mb-3 cursor-pointer transition-colors duration-200">
+        <span class="arrow">▶</span>
+        <span class="command">$ cat --more</span>
+    </label>
+
+    <div class="flex flex-wrap gap-2 mt-2.5">
+        {technologies.map((tech) => (
+            <TechTag name={tech} />
+        ))}
+    </div>
+</article>
+
+<style>
+    .job-card:hover :global(.tech-tag) {
+        border-color: #b30000;
+        color: #ff3333;
+    }
+
+    .toggle-checkbox {
+        display: none;
+    }
+
+    .job-content-wrapper {
+        position: relative;
+    }
+
+    .job-content {
+        max-height: 80px;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .toggle-checkbox:checked ~ .job-content-wrapper .job-content {
+        max-height: 2000px;
+    }
+
+    .fade-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 40px;
+        background: linear-gradient(to bottom, transparent, #1a1a1a);
+        pointer-events: none;
+        opacity: 1;
+        transition: opacity 0.3s ease;
+    }
+
+    .toggle-checkbox:checked ~ .job-content-wrapper .fade-overlay {
+        opacity: 0;
+    }
+
+    .toggle-label {
+        padding: 0;
+        user-select: none;
+    }
+
+    .toggle-label .arrow {
+        display: inline-block;
+        transition: transform 0.3s ease;
+    }
+
+    .toggle-checkbox:checked ~ .toggle-label .arrow {
+        transform: rotate(90deg);
+    }
+
+    .toggle-checkbox:checked ~ .toggle-label .command::after {
+        content: ' --all';
+    }
+</style>
+

@@ -1,22 +1,46 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { siteConfig } from '../types';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const siteTitle = t('site.title');
+const siteDescription = t('site.description');
+---
+
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<meta name="description" content={siteDescription} />
+		<meta name="author" content={siteConfig.author} />
+		<title>{siteTitle}</title>
 	</head>
-	<body>
+	<body class="bg-[#0f0f0f] text-[#c5c8c6] font-['Courier_New',Courier,monospace] leading-relaxed overflow-x-hidden">
 		<slot />
 	</body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
+<style is:global>
+	:root {
+		--bg-color: #0f0f0f;
+		--card-bg: #1a1a1a;
+		--text-main: #c5c8c6;
+		--text-dim: #707880;
+		--arch-blue: #1793d1;
+		--arch-red: #b30000;
+		--highlight: #ff3333;
+	}
+
+	@keyframes blink {
+		0%, 100% { opacity: 1; }
+		50% { opacity: 0; }
+	}
+
+	.cursor {
+		animation: blink 1s infinite;
 	}
 </style>

@@ -1,0 +1,16 @@
+---
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="text-center py-10 text-[#707880] text-xs border-t border-[#333]">
+    <p>
+        {t('footer.madeWith')} <span class="text-[#b30000]" aria-label="amor">♥</span>, Vim, TypeScript & Astro. ©
+        {currentYear}
+    </p>
+    <p>{t('footer.uptime')}: 99.9%</p>
+</footer>
+

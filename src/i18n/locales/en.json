@@ -1,0 +1,117 @@
+{
+  "site": {
+    "title": "brandon@portfolio ~",
+    "description": "Brandon Quintero Mendoza Portfolio - Full Stack Developer with +4 years of experience"
+  },
+  "nav": {
+    "home": "./home",
+    "experience": "./experience",
+    "contact": "./contact"
+  },
+  "hero": {
+    "command": "cat /home/brandon/profile.txt",
+    "bio": [
+      "> Software Developer and Cybersecurity Engineer | +4 years of experience",
+      "> This dual background gives me a unique perspective—I don't just build scalable,",
+      "> high-performing applications; I design them with security at the core, right from the start.",
+      "> While my foundation lies in cybersecurity, my current focus is on software development,",
+      "> where I bring both fields together to deliver robust, secure solutions.",
+      "> Currently running: pacman -Syu innovation && npm run build-future"
+    ]
+  },
+  "experience": {
+    "title": "$ cat ./experience.log"
+  },
+  "social": {
+    "cv": {
+      "command": "$ curl --language en_US curriculum.pdf",
+      "status": "[PDF]",
+      "title": "Download CV",
+      "file": "/CV-EN-Brandon.pdf"
+    },
+    "linkedin": {
+      "command": "$ ./linkedin.sh",
+      "status": "[EXEC]",
+      "title": "LinkedIn"
+    },
+    "email": {
+      "command": "$ mail -s \"Contact\"",
+      "status": "[SEND]",
+      "title": "Send email"
+    },
+    "github": {
+      "command": "$ git remote show",
+      "status": "[REPO]",
+      "title": "GitHub"
+    },
+    "blog": {
+      "command": "$ exec ./bitskingdom/blog.html",
+      "status": "[HTML]",
+      "title": "Blog",
+      "url": "https://bitskingdom.com/blog/author/brandon/"
+    }
+  },
+  "footer": {
+    "madeWith": "Made with",
+    "uptime": "Uptime"
+  },
+  "jobs": {
+    "job1": {
+      "title": "Mobile Developer & Data Analyst",
+      "company": "Bits Kingdom (Remote, USA)",
+      "period": "[April 2024 - December 2025]",
+      "technologies": ["React Native", "Python", "Apache Airflow", "Git", "GitHub", "Git Flow", "ETL", "Cloudflare", "DDoS Mitigation"],
+      "description": [
+        "<strong>Mobile Development:</strong> Designed and implemented new features in mobile applications using React Native, focusing on performance optimization and user experience (UX/UI).",
+        "",
+        "<strong>Data Engineering:</strong> Acted as a data analyst, building and orchestrating automated and scalable data pipelines (ETL) using Python and Apache Airflow, ensuring data integrity and availability for decision-making.",
+        "",
+        "<strong>Quality & DevOps:</strong> Established code quality standards through advanced Git and GitHub management. Implemented branching strategies (Git Flow), thorough code reviews, and collaborative workflows to synchronize distributed teams.",
+        "",
+        "<strong>Critical Incident Mitigation (DDoS):</strong> Immediately responded to and resolved an active DDoS attack. Applied hacking techniques and traffic analysis to identify the attack vector and configured Cloudflare on-the-fly (I'm Under Attack Mode, Rate Limiting, and WAF rules), successfully mitigating 99% of malicious traffic and restoring service availability within minutes."
+      ]
+    },
+    "job2": {
+      "title": "Technical Consultant and Mentor",
+      "company": "Freelance",
+      "period": "[September 2024 - March 2025]",
+      "technologies": ["Node.js", "React", "TypeScript", "Git", "Clean Architecture", "Design Patterns"],
+      "description": [
+        "<strong>Consulting:</strong> Provided custom technical solutions for various clients, focusing on refactoring legacy code to improve its maintainability and scalability.",
+        "",
+        "<strong>Mentorship:</strong> Led training for junior developers, instructing them in clean architectures, design patterns, and professional use of version control systems.",
+        "",
+        "<strong>Optimization:</strong> Analyzed and improved development workflows, reducing technical debt and accelerating delivery times."
+      ]
+    },
+    "job3": {
+      "title": "Full-stack Developer",
+      "company": "DisruptiveIT",
+      "period": "[April 2022 - July 2024]",
+      "technologies": ["ReactJS", "Redux", "Node.js", "Express", "Prisma", "Docker", "CI/CD", "DDoS Protection"],
+      "description": [
+        "<strong>System Modernization:</strong> Led the migration of legacy platforms to modern Single Page Application (SPA) architectures using ReactJS and Redux, significantly improving interface speed and responsiveness.",
+        "",
+        "<strong>Backend & Microservices:</strong> Developed robust services for international applications (such as Mesadoko) using Node.js, Express, and Prisma, implementing a modular microservices architecture.",
+        "",
+        "<strong>Secure Infrastructure:</strong> Strengthened application security by implementing DDoS attack protections and configured CI/CD pipelines for automated and secure deployments."
+      ]
+    },
+    "job4": {
+      "title": "Technical Lead",
+      "company": "Arrendamientos del Norte",
+      "period": "[April 2022 - December 2023]",
+      "technologies": ["RESTful API", "React", "React Native", "Node.js", "SQL", "Real-time Sync"],
+      "description": [
+        "<strong>Product Management:</strong> Directed the complete development lifecycle of RCService, a comprehensive administrative solution for real estate management.",
+        "",
+        "<strong>Multi-platform Development:</strong> Built the complete ecosystem: a scalable RESTful API, an administrative web panel, and a native mobile application, ensuring real-time synchronization across all platforms."
+      ]
+    }
+  },
+  "lang": {
+    "switch": "$ locale-gen es_ES",
+    "current": "EN"
+  }
+}
+
