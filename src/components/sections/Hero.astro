@@ -1,0 +1,53 @@
+---
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+import SocialLinks from './SocialLinks.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const heroCommand = t('hero.command');
+const heroBio = t('hero.bio');
+---
+
+<section id="hero" class="py-10">
+    <p>
+        <span class="text-[#ff3333] mr-2.5">[root@arch ~]#</span>
+        <span id="typing-text"></span><span class="cursor inline-block w-2.5 h-6 bg-[#c5c8c6] align-middle"></span>
+    </p>
+    <div class="mt-5 text-[#707880] border-l-[3px] border-[#b30000] pl-4">
+        {heroBio.map((line: string) => (
+            <p set:html={line.includes('pacman') ? line.replace(/pacman[^<]+/, `<code>${line.match(/pacman[^<]+/)?.[0]}</code>`) : line} />
+        ))}
+    </div>
+    
+    <SocialLinks />
+</section>
+
+<script define:vars={{ command: heroCommand }}>
+    const textToType = command;
+    const typingSpeed = 100;
+
+    function initTypeWriter() {
+        const typingElement = document.getElementById('typing-text');
+        
+        if (!typingElement) {
+            console.warn('Elemento #typing-text no encontrado');
+            return;
+        }
+
+        let index = 0;
+
+        function typeCharacter() {
+            if (index < textToType.length && typingElement) {
+                typingElement.textContent += textToType.charAt(index);
+                index++;
+                setTimeout(typeCharacter, typingSpeed);
+            }
+        }
+
+        typeCharacter();
+    }
+
+    document.addEventListener('DOMContentLoaded', initTypeWriter);
+</script>
+

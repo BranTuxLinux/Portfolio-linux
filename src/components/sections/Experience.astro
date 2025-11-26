@@ -1,0 +1,35 @@
+---
+import { getCollection } from 'astro:content';
+import JobCard from '../ui/JobCard.astro';
+
+const experiences = await getCollection('experiences');
+
+const sortedExperiences = experiences
+    .filter(exp => exp.data.draft !== true)
+    .sort((a, b) => a.data.order - b.data.order);
+---
+
+<section id="experience" class="mb-15">
+    <h2 class="text-2xl mb-5 text-[#ff3333] border-b border-dashed border-[#707880] inline-block pb-1.5">
+        $ cat ./experiencia.log
+    </h2>
+
+    <div class="grid grid-cols-1 gap-5">
+        {
+            sortedExperiences.map(async (experience) => {
+                const { Content } = await experience.render();
+                return (
+                    <JobCard 
+                        title={experience.data.title}
+                        company={experience.data.company}
+                        period={experience.data.period}
+                        technologies={experience.data.technologies}
+                    >
+                        <Content />
+                    </JobCard>
+                );
+            })
+        }
+    </div>
+</section>
+

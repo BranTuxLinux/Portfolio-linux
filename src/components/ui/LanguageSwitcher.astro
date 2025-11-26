@@ -1,0 +1,107 @@
+---
+import { getLangFromUrl, type Language } from '../../i18n/utils';
+
+const currentLang = getLangFromUrl(Astro.url);
+const currentPath = Astro.url.pathname;
+
+const isSpanish = currentLang === 'es';
+const alternatePath = isSpanish 
+  ? currentPath.replace(/^\/es/, '') || '/'
+  : `/es${currentPath}`;
+---
+
+<div class="language-switcher">
+    <a 
+        href={alternatePath}
+        class="lang-link"
+        title={isSpanish ? 'Switch to English' : 'Cambiar a Español'}
+    >
+        <span class="prompt">$</span>
+        <span class="command">locale-gen</span>
+        <span class="lang-code">{isSpanish ? 'en_US' : 'es_ES'}</span>
+        <span class="flag">{isSpanish ? '🇺🇸' : '🇪🇸'}</span>
+    </a>
+</div>
+
+<style>
+    .language-switcher {
+        display: inline-block;
+    }
+
+    .lang-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.4rem 0.8rem;
+        background-color: #1a1a1a;
+        border: 1px solid #333;
+        color: #c5c8c6;
+        text-decoration: none;
+        font-family: 'Courier New', monospace;
+        font-size: 0.85rem;
+        transition: all 0.2s ease;
+        position: relative;
+    }
+
+    .lang-link::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 2px;
+        background-color: #b30000;
+        transform: scaleY(0);
+        transition: transform 0.2s ease;
+    }
+
+    .lang-link:hover {
+        border-color: #ff3333;
+        background-color: #242424;
+        transform: translateX(2px);
+    }
+
+    .lang-link:hover::before {
+        transform: scaleY(1);
+    }
+
+    .prompt {
+        color: #ff3333;
+        font-weight: bold;
+    }
+
+    .command {
+        color: #8abeb7;
+    }
+
+    .lang-code {
+        color: #b5bd68;
+        font-weight: 600;
+    }
+
+    .flag {
+        font-size: 1.1rem;
+        filter: grayscale(0.2);
+        transition: filter 0.2s ease;
+    }
+
+    .lang-link:hover .flag {
+        filter: grayscale(0);
+    }
+
+    .lang-link:hover .command {
+        color: #ff3333;
+    }
+
+    @media (max-width: 640px) {
+        .lang-link {
+            font-size: 0.75rem;
+            padding: 0.3rem 0.6rem;
+        }
+
+        .command {
+            display: none;
+        }
+    }
+</style>
+

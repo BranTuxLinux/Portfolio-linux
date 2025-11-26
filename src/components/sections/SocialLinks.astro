@@ -1,0 +1,158 @@
+---
+import { socialLinks } from '../../data/config';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section id="social-links" class="my-8">
+    <div class="flex flex-wrap gap-3">
+        <a 
+            href={t('social.cv.file')}
+            download
+            class="social-link group"
+            title={t('social.cv.title')}
+        >
+            <span class="icon">📄</span>
+            <span class="command">{t('social.cv.command')}</span>
+            <span class="status">{t('social.cv.status')}</span>
+        </a>
+
+        <a 
+            href={socialLinks.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-link group"
+            title={t('social.linkedin.title')}
+        >
+            <span class="icon">💼</span>
+            <span class="command">{t('social.linkedin.command')}</span>
+            <span class="status">{t('social.linkedin.status')}</span>
+        </a>
+
+        <a 
+            href={`mailto:${socialLinks.email}`}
+            class="social-link group"
+            title={t('social.email.title')}
+        >
+            <span class="icon">✉️</span>
+            <span class="command">{t('social.email.command')}</span>
+            <span class="status">{t('social.email.status')}</span>
+        </a>
+
+        <a 
+            href={socialLinks.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-link group"
+            title={t('social.github.title')}
+        >
+            <span class="icon">🐙</span>
+            <span class="command">{t('social.github.command')}</span>
+            <span class="status">{t('social.github.status')}</span>
+        </a>
+
+        <a 
+            href={t('social.blog.url')}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-link group"
+            title={t('social.blog.title')}
+        >
+            <span class="icon">📰</span>
+            <span class="command">{t('social.blog.command')}</span>
+            <span class="status">{t('social.blog.status')}</span>
+        </a>
+
+    </div>
+</section>
+
+<style>
+    .social-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.6rem 1rem;
+        background-color: #1a1a1a;
+        border: 1px solid #333;
+        border-radius: 0;
+        color: #c5c8c6;
+        text-decoration: none;
+        font-family: 'Courier New', monospace;
+        font-size: 0.85rem;
+        transition: all 0.2s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .social-link::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 3px;
+        background-color: #b30000;
+        transform: scaleY(0);
+        transition: transform 0.2s ease;
+    }
+
+    .social-link:hover {
+        border-color: #ff3333;
+        transform: translateX(3px);
+        background-color: #242424;
+    }
+
+    .social-link:hover::before {
+        transform: scaleY(1);
+    }
+
+    .social-link .icon {
+        font-size: 1.2rem;
+        filter: grayscale(0.3);
+        transition: filter 0.2s ease;
+    }
+
+    .social-link:hover .icon {
+        filter: grayscale(0);
+    }
+
+    .social-link .command {
+        color: #c5c8c6;
+        transition: color 0.2s ease;
+    }
+
+    .social-link:hover .command {
+        color: #ff3333;
+    }
+
+    .social-link .status {
+        color: #707880;
+        font-size: 0.75rem;
+        font-weight: bold;
+        margin-left: 0.25rem;
+        transition: color 0.2s ease;
+    }
+
+    .social-link:hover .status {
+        color: #ff5555;
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+        .social-link {
+            font-size: 0.75rem;
+            padding: 0.5rem 0.8rem;
+        }
+
+        .social-link .icon {
+            font-size: 1rem;
+        }
+
+        .social-link .status {
+            display: none;
+        }
+    }
+</style>
+
