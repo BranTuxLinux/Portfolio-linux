@@ -4,67 +4,35 @@ import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+/** Cada enlace se declara una vez: mismo marcado, distinto destino. */
+const enlaces = [
+    { clave: 'cv', icono: '📄', href: t('social.cv.file'), descarga: true },
+    { clave: 'linkedin', icono: '💼', href: socialLinks.linkedin, externo: true },
+    { clave: 'email', icono: '✉️', href: `mailto:${socialLinks.email}` },
+    { clave: 'github', icono: '🐙', href: socialLinks.github, externo: true },
+    { clave: 'github2', icono: '🐙', href: socialLinks.github2, externo: true },
+    { clave: 'blog', icono: '📰', href: t('social.blog.url'), externo: true, destacado: true },
+    { clave: 'blogCompany', icono: '📰', href: t('social.blogCompany.url'), externo: true },
+];
 ---
 
 <section id="social-links" class="my-8">
     <div class="flex flex-wrap gap-3">
-        <a 
-            href={t('social.cv.file')}
-            download
-            class="social-link group"
-            title={t('social.cv.title')}
-        >
-            <span class="icon">📄</span>
-            <span class="command">{t('social.cv.command')}</span>
-            <span class="status">{t('social.cv.status')}</span>
-        </a>
-
-        <a 
-            href={socialLinks.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="social-link group"
-            title={t('social.linkedin.title')}
-        >
-            <span class="icon">💼</span>
-            <span class="command">{t('social.linkedin.command')}</span>
-            <span class="status">{t('social.linkedin.status')}</span>
-        </a>
-
-        <a 
-            href={`mailto:${socialLinks.email}`}
-            class="social-link group"
-            title={t('social.email.title')}
-        >
-            <span class="icon">✉️</span>
-            <span class="command">{t('social.email.command')}</span>
-            <span class="status">{t('social.email.status')}</span>
-        </a>
-
-        <a 
-            href={socialLinks.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="social-link group"
-            title={t('social.github.title')}
-        >
-            <span class="icon">🐙</span>
-            <span class="command">{t('social.github.command')}</span>
-            <span class="status">{t('social.github.status')}</span>
-        </a>
-
-        <a 
-            href={t('social.blog.url')}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="social-link group"
-            title={t('social.blog.title')}
-        >
-            <span class="icon">📰</span>
-            <span class="command">{t('social.blog.command')}</span>
-            <span class="status">{t('social.blog.status')}</span>
-        </a>
-
+        {enlaces.map(({ clave, icono, href, externo, descarga, destacado }) => (
+            <a
+                href={href}
+                download={descarga}
+                target={externo ? '_blank' : undefined}
+                rel={externo ? 'noopener noreferrer' : undefined}
+                class:list={['social-link', destacado && 'social-link--destacado']}
+                title={t(`social.${clave}.title`)}
+            >
+                <span class="icon" aria-hidden="true">{icono}</span>
+                <span class="command">{t(`social.${clave}.command`)}</span>
+                <span class="status">{t(`social.${clave}.status`)}</span>
+            </a>
+        ))}
     </div>
 </section>
 
@@ -74,16 +42,24 @@ const t = useTranslations(lang);
         align-items: center;
         gap: 0.5rem;
         padding: 0.6rem 1rem;
-        background-color: #1a1a1a;
-        border: 1px solid #333;
-        border-radius: 0;
-        color: #c5c8c6;
+        background-color: var(--card-bg);
+        border: 1px solid var(--border);
+        color: var(--text-main);
         text-decoration: none;
         font-family: 'Courier New', monospace;
         font-size: 0.85rem;
         transition: all 0.2s ease;
         position: relative;
         overflow: hidden;
+    }
+
+    /* El blog propio es el enlace que se quiere que abran: se marca. */
+    .social-link--destacado {
+        border-color: var(--arch-red);
+    }
+
+    .social-link--destacado .command {
+        color: var(--arch-teal);
     }
 
     .social-link::before {
@@ -93,15 +69,15 @@ const t = useTranslations(lang);
         top: 0;
         height: 100%;
         width: 3px;
-        background-color: #b30000;
+        background-color: var(--arch-red);
         transform: scaleY(0);
         transition: transform 0.2s ease;
     }
 
     .social-link:hover {
-        border-color: #ff3333;
+        border-color: var(--highlight);
         transform: translateX(3px);
-        background-color: #242424;
+        background-color: var(--card-bg-hover);
     }
 
     .social-link:hover::before {
@@ -119,16 +95,15 @@ const t = useTranslations(lang);
     }
 
     .social-link .command {
-        color: #c5c8c6;
         transition: color 0.2s ease;
     }
 
     .social-link:hover .command {
-        color: #ff3333;
+        color: var(--highlight);
     }
 
     .social-link .status {
-        color: #707880;
+        color: var(--text-dim);
         font-size: 0.75rem;
         font-weight: bold;
         margin-left: 0.25rem;
@@ -139,7 +114,6 @@ const t = useTranslations(lang);
         color: #ff5555;
     }
 
-    /* Responsive */
     @media (max-width: 640px) {
         .social-link {
             font-size: 0.75rem;
@@ -154,5 +128,11 @@ const t = useTranslations(lang);
             display: none;
         }
     }
-</style>
 
+    @media (prefers-reduced-motion: reduce) {
+        .social-link,
+        .social-link:hover {
+            transform: none;
+        }
+    }
+</style>

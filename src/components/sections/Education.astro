@@ -1,0 +1,96 @@
+---
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+interface EducationItem {
+    institution: string;
+    degree: string;
+    honors: string;
+}
+
+const items: EducationItem[] = t('education.items');
+---
+
+<section id="education" class="mb-14 scroll-mt-8">
+    <h2 class="section-title">{t('education.title')}</h2>
+
+    <div class="grid grid-cols-1 gap-4">
+        {items.map((item) => (
+            <article class="edu-card">
+                <div class="edu-glyph" aria-hidden="true">🎓</div>
+                <div>
+                    <h3 class="text-[var(--text-main)] font-bold text-base leading-snug">
+                        {item.degree}
+                    </h3>
+                    <p class="text-[var(--text-dim)] text-sm mt-1">{item.institution}</p>
+                    <p class="edu-honors">
+                        <span class="edu-honors-key">honors</span>
+                        <span class="edu-honors-sep">=</span>
+                        <span class="edu-honors-value">{item.honors}</span>
+                    </p>
+                </div>
+            </article>
+        ))}
+    </div>
+</section>
+
+<style>
+    .edu-card {
+        display: flex;
+        gap: 1rem;
+        align-items: flex-start;
+        background-color: var(--card-bg);
+        border: 1px solid #333;
+        border-left: 3px solid var(--arch-red);
+        padding: 1.25rem;
+        transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .edu-card:hover {
+        border-color: var(--highlight);
+        border-left-color: var(--highlight);
+        transform: translateX(3px);
+    }
+
+    .edu-glyph {
+        font-size: 1.5rem;
+        line-height: 1;
+        filter: grayscale(0.4);
+        transition: filter 0.2s ease;
+    }
+
+    .edu-card:hover .edu-glyph {
+        filter: grayscale(0);
+    }
+
+    .edu-honors {
+        margin-top: 0.6rem;
+        font-size: 0.8rem;
+        display: inline-flex;
+        gap: 0.35rem;
+        align-items: baseline;
+        flex-wrap: wrap;
+    }
+
+    .edu-honors-key {
+        color: var(--arch-teal);
+    }
+
+    .edu-honors-sep {
+        color: var(--text-dim);
+    }
+
+    .edu-honors-value {
+        color: var(--arch-yellow);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .edu-card,
+        .edu-card:hover {
+            transform: none;
+            transition: none;
+        }
+    }
+</style>

@@ -9,12 +9,12 @@ const heroCommand = t('hero.command');
 const heroBio = t('hero.bio');
 ---
 
-<section id="hero" class="py-10">
+<section id="hero" class="py-10 scroll-mt-8">
     <p>
-        <span class="text-[#ff3333] mr-2.5">[root@arch ~]#</span>
-        <span id="typing-text"></span><span class="cursor inline-block w-2.5 h-6 bg-[#c5c8c6] align-middle"></span>
+        <span class="text-[var(--highlight)] mr-2.5">[root@arch ~]#</span>
+        <span id="typing-text"></span><span class="cursor inline-block w-2.5 h-6 bg-[var(--text-main)] align-middle"></span>
     </p>
-    <div class="mt-5 text-[#707880] border-l-[3px] border-[#b30000] pl-4">
+    <div class="mt-5 text-[var(--text-dim)] border-l-[3px] border-[var(--arch-red)] pl-4">
         {heroBio.map((line: string) => (
             <p set:html={line.includes('pacman') ? line.replace(/pacman[^<]+/, `<code>${line.match(/pacman[^<]+/)?.[0]}</code>`) : line} />
         ))}

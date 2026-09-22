@@ -1,36 +1,19 @@
-import type { SiteMetadata, NavLink, SocialLinks } from '../types';
+import type { SiteMetadata, SocialLinks } from '../types';
 
 export const siteMetadata: SiteMetadata = {
     title: "brandon@portfolio ~",
-    description: "Portfolio de Brandon Quintero Mendoza - Desarrollador Full Stack con +4 años de experiencia",
+    description: "Portfolio de Brandon Quintero Mendoza - Desarrollador Full Stack con +5 años de experiencia",
     author: "Brandon Quintero Mendoza",
-    siteUrl: "https://brandon-portfolio.com"
+    // El dominio real del despliegue: es el que va en el CV, en el canonical y
+    // en los hreflang. Cambiarlo aqui los cambia en los tres sitios.
+    siteUrl: "https://portfolio-arch-linux-brthmnd.vercel.app"
 };
 
-export const navigationLinks: NavLink[] = [
-    { href: "#hero", label: "./inicio" },
-    { href: "#experience", label: "./experiencia" },
-    { href: "#social-links", label: "./contacto" }
-];
-
+/** Lo que no se traduce: correos, usuarios y URLs. El texto visible vive en i18n. */
 export const socialLinks: SocialLinks = {
     email: "brandonquinterogit@gmail.com",
     linkedin: "https://www.linkedin.com/in/brantux/",
     github: "https://github.com/BranTuxLinux",
+    // Segunda cuenta, la misma que aparece en el CV como GitHub#2.
+    github2: "https://github.com/BrthMnd",
 };
-
-export const heroInfo = {
-    command: "cat /home/brandon/profile.txt",
-    bio: [
-        "> Desarrollador Back-end & Full Stack | +4 años de experiencia",
-        "> Especializado en Node.js, React, TypeScript y arquitecturas escalables.",
-        "> Experto en Linux, Docker, Git/GitHub y metodologías ágiles.",
-        "> Actualmente ejecutando: pacman -Syu innovation && npm run build-future"
-    ]
-};
-
-export const footerInfo = {
-    madeWith: ["Neovim", "Astro", "Tailwind CSS"],
-    uptime: "99.9%"
-};
-

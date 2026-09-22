@@ -6,19 +6,33 @@ interface Props {
     company: string;
     period: string;
     technologies: string[];
+    /** Despliegue en producción; solo lo llevan los proyectos publicados. */
+    url?: string;
 }
 
-const { title, company, period, technologies } = Astro.props;
-const uniqueId = `job-${Math.random().toString(36).substr(2, 9)}`;
+const { title, company, period, technologies, url } = Astro.props;
+// Estable entre renders: el id sale del contenido, no del azar.
+const uniqueId = `job-${`${company}-${period}`.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}`;
 ---
 
-<article class="job-card bg-[#1a1a1a] border border-[#333] p-5 transition-all duration-200 relative hover:border-[#b30000] hover:translate-x-1.5">
+<article class="job-card bg-[var(--card-bg)] border border-[var(--border)] p-5 transition-all duration-200 relative hover:border-[var(--arch-red)] hover:translate-x-1.5">
     <div class="flex justify-between mb-2.5 flex-wrap gap-2">
-        <h3 class="font-bold text-[#c5c8c6] text-lg">
+        <h3 class="font-bold text-[var(--text-main)] text-lg">
             {title} @ {company}
         </h3>
-        <span class="text-[#707880] text-[0.85rem]">{period}</span>
+        <span class="text-[var(--text-dim)] text-[0.85rem] whitespace-nowrap">{period}</span>
     </div>
+
+    {url && (
+        <a
+            href={url}
+            target="_blank"
+            rel="noopener"
+            class="inline-block mb-3 text-sm font-mono text-[var(--highlight)] hover:text-[#ff5555] hover:underline break-all"
+        >
+            $ open {url.replace(/^https?:\/\//, '')}
+        </a>
+    )}
     
     <input type="checkbox" id={uniqueId} class="toggle-checkbox" />
     
@@ -29,7 +43,7 @@ const uniqueId = `job-${Math.random().toString(36).substr(2, 9)}`;
         <div class="fade-overlay"></div>
     </div>
 
-    <label for={uniqueId} class="toggle-label text-[#ff3333] hover:text-[#ff5555] text-sm font-mono flex items-center gap-2 mb-3 cursor-pointer transition-colors duration-200">
+    <label for={uniqueId} class="toggle-label text-[var(--highlight)] hover:text-[#ff5555] text-sm font-mono flex items-center gap-2 mb-3 cursor-pointer transition-colors duration-200">
         <span class="arrow">▶</span>
         <span class="command">$ cat --more</span>
     </label>
@@ -43,8 +57,8 @@ const uniqueId = `job-${Math.random().toString(36).substr(2, 9)}`;
 
 <style>
     .job-card:hover :global(.tech-tag) {
-        border-color: #b30000;
-        color: #ff3333;
+        border-color: var(--arch-red);
+        color: var(--highlight);
     }
 
     .toggle-checkbox {
@@ -71,7 +85,7 @@ const uniqueId = `job-${Math.random().toString(36).substr(2, 9)}`;
         left: 0;
         right: 0;
         height: 40px;
-        background: linear-gradient(to bottom, transparent, #1a1a1a);
+        background: linear-gradient(to bottom, transparent, var(--card-bg));
         pointer-events: none;
         opacity: 1;
         transition: opacity 0.3s ease;
@@ -97,6 +111,15 @@ const uniqueId = `job-${Math.random().toString(36).substr(2, 9)}`;
 
     .toggle-checkbox:checked ~ .toggle-label .command::after {
         content: ' --all';
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .job-card,
+        .job-card:hover,
+        .toggle-label .arrow {
+            transform: none;
+            transition: none;
+        }
     }
 </style>
 

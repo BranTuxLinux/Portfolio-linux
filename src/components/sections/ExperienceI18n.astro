@@ -5,13 +5,11 @@ import JobCard from '../ui/JobCard.astro';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const jobs = ['job1', 'job2', 'job3', 'job4'];
+const jobs = ['job1', 'job2', 'job3', 'job4', 'job5'];
 ---
 
-<section id="experience" class="mb-15">
-    <h2 class="text-2xl mb-5 text-[#ff3333] border-b border-dashed border-[#707880] inline-block pb-1.5">
-        {t('experience.title')}
-    </h2>
+<section id="experience" class="mb-14 scroll-mt-8">
+    <h2 class="section-title">{t('experience.title')}</h2>
 
     <div class="grid grid-cols-1 gap-5">
         {jobs.map((jobKey) => {

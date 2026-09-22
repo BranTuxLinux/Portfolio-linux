@@ -1,0 +1,33 @@
+---
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+import JobCard from '../ui/JobCard.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const projects = ['ajusta', 'jarvis', 'whvn', 'blog'];
+---
+
+<section id="projects" class="mb-14 scroll-mt-8">
+    <h2 class="section-title">{t('projects.title')}</h2>
+
+    <div class="grid grid-cols-1 gap-5">
+        {projects.map((projectKey) => {
+            const project = t(`projects.list.${projectKey}`);
+            return (
+                <JobCard
+                    title={project.title}
+                    company={project.company}
+                    period={project.period}
+                    technologies={project.technologies}
+                    url={project.url}
+                >
+                    {project.description.map((paragraph: string) => (
+                        <p set:html={paragraph} class="mb-2" />
+                    ))}
+                </JobCard>
+            );
+        })}
+    </div>
+</section>
+

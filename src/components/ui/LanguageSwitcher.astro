@@ -33,9 +33,9 @@ const alternatePath = isSpanish
         align-items: center;
         gap: 0.4rem;
         padding: 0.4rem 0.8rem;
-        background-color: #1a1a1a;
-        border: 1px solid #333;
-        color: #c5c8c6;
+        background-color: var(--card-bg);
+        border: 1px solid var(--border);
+        color: var(--text-main);
         text-decoration: none;
         font-family: 'Courier New', monospace;
         font-size: 0.85rem;
@@ -50,14 +50,14 @@ const alternatePath = isSpanish
         top: 0;
         height: 100%;
         width: 2px;
-        background-color: #b30000;
+        background-color: var(--arch-red);
         transform: scaleY(0);
         transition: transform 0.2s ease;
     }
 
     .lang-link:hover {
-        border-color: #ff3333;
-        background-color: #242424;
+        border-color: var(--highlight);
+        background-color: var(--card-bg-hover);
         transform: translateX(2px);
     }
 
@@ -66,16 +66,16 @@ const alternatePath = isSpanish
     }
 
     .prompt {
-        color: #ff3333;
+        color: var(--highlight);
         font-weight: bold;
     }
 
     .command {
-        color: #8abeb7;
+        color: var(--arch-teal);
     }
 
     .lang-code {
-        color: #b5bd68;
+        color: var(--arch-green);
         font-weight: 600;
     }
 
@@ -90,7 +90,7 @@ const alternatePath = isSpanish
     }
 
     .lang-link:hover .command {
-        color: #ff3333;
+        color: var(--highlight);
     }
 
     @media (max-width: 640px) {

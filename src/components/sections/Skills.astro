@@ -1,0 +1,148 @@
+---
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+interface SkillGroup {
+    name: string;
+    items: string[];
+}
+
+interface LanguageSkill {
+    name: string;
+    level: string;
+}
+
+const groups: SkillGroup[] = t('skills.groups');
+const languages: LanguageSkill[] = t('skills.languages');
+---
+
+<section id="skills" class="mb-14 scroll-mt-8">
+    <h2 class="section-title">{t('skills.title')}</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {groups.map((group) => (
+            <article class="skill-group">
+                <h3 class="skill-dir">
+                    <span class="skill-dir-glyph" aria-hidden="true">▚</span>
+                    {group.name}
+                </h3>
+                <ul class="skill-list">
+                    {group.items.map((item) => (
+                        <li class="skill-item">
+                            <span class="skill-bullet" aria-hidden="true">-rwx</span>
+                            <span>{item}</span>
+                        </li>
+                    ))}
+                </ul>
+            </article>
+        ))}
+    </div>
+
+    <h3 class="lang-title">{t('skills.languagesTitle')}</h3>
+    <ul class="lang-list">
+        {languages.map((language) => (
+            <li class="lang-chip">
+                <span class="lang-name">{language.name}</span>
+                <span class="lang-sep">:</span>
+                <span class="lang-level">{language.level}</span>
+            </li>
+        ))}
+    </ul>
+</section>
+
+<style>
+    .skill-group {
+        background-color: var(--card-bg);
+        border: 1px solid #333;
+        padding: 1.1rem 1.25rem;
+        transition: border-color 0.2s ease;
+    }
+
+    .skill-group:hover {
+        border-color: var(--arch-red);
+    }
+
+    .skill-dir {
+        color: var(--arch-blue);
+        font-weight: 700;
+        font-size: 0.95rem;
+        margin-bottom: 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .skill-dir-glyph {
+        color: var(--arch-red);
+    }
+
+    .skill-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .skill-item {
+        display: flex;
+        gap: 0.6rem;
+        align-items: baseline;
+        color: #aaa;
+        font-size: 0.875rem;
+        line-height: 1.5;
+    }
+
+    .skill-bullet {
+        color: var(--text-dim);
+        font-size: 0.7rem;
+        flex-shrink: 0;
+        letter-spacing: 0.05em;
+    }
+
+    .lang-title {
+        color: var(--text-dim);
+        font-size: 0.85rem;
+        margin: 1.5rem 0 0.75rem;
+    }
+
+    .lang-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+    }
+
+    .lang-chip {
+        display: inline-flex;
+        align-items: baseline;
+        gap: 0.35rem;
+        border: 1px solid #333;
+        background-color: rgba(0, 0, 0, 0.3);
+        padding: 0.35rem 0.7rem;
+        font-size: 0.8rem;
+        transition: border-color 0.2s ease;
+    }
+
+    .lang-chip:hover {
+        border-color: var(--arch-red);
+    }
+
+    .lang-name {
+        color: var(--text-main);
+    }
+
+    .lang-sep {
+        color: var(--text-dim);
+    }
+
+    .lang-level {
+        color: var(--arch-green);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .skill-group,
+        .lang-chip {
+            transition: none;
+        }
+    }
+</style>

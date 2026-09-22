@@ -1,46 +1,76 @@
 ---
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
-import { siteConfig } from '../types';
+import { getLangFromUrl, useTranslations, languages } from '../i18n/utils';
+import { siteMetadata } from '../data/config';
+import '../styles/global.css';
+
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const siteTitle = t('site.title');
 const siteDescription = t('site.description');
+
+// Las dos rutas son la misma pagina en dos idiomas: sin hreflang, un buscador
+// las trata como duplicados y decide por su cuenta cual indexar.
+const rutaSinIdioma = Astro.url.pathname.replace(/^\/es(?=\/|$)/, '') || '/';
+const alternativas = [
+    { hreflang: 'en', href: new URL(rutaSinIdioma, siteMetadata.siteUrl).href },
+    { hreflang: 'es', href: new URL(`/es${rutaSinIdioma}`.replace(/\/$/, '') + '/', siteMetadata.siteUrl).href },
+];
+const canonical = alternativas.find((alternativa) => alternativa.hreflang === lang)?.href;
 ---
 
 <!doctype html>
 <html lang={lang}>
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={siteDescription} />
-		<meta name="author" content={siteConfig.author} />
+		<meta name="author" content={siteMetadata.author} />
 		<title>{siteTitle}</title>
+
+		<link rel="canonical" href={canonical} />
+		{alternativas.map((alternativa) => (
+			<link rel="alternate" hreflang={alternativa.hreflang} href={alternativa.href} />
+		))}
+		<link rel="alternate" hreflang="x-default" href={alternativas[0].href} />
+
+		<meta property="og:type" content="profile" />
+		<meta property="og:title" content={siteTitle} />
+		<meta property="og:description" content={siteDescription} />
+		<meta property="og:url" content={canonical} />
+		<meta property="og:locale" content={lang === 'es' ? 'es_ES' : 'en_US'} />
+		{Object.keys(languages)
+			.filter((otro) => otro !== lang)
+			.map((otro) => (
+				<meta property="og:locale:alternate" content={otro === 'es' ? 'es_ES' : 'en_US'} />
+			))}
+		<meta name="twitter:card" content="summary" />
+		<meta name="theme-color" content="#0f0f0f" />
 	</head>
-	<body class="bg-[#0f0f0f] text-[#c5c8c6] font-['Courier_New',Courier,monospace] leading-relaxed overflow-x-hidden">
+	<body class="bg-[var(--bg-color)] text-[var(--text-main)] font-['Courier_New',Courier,monospace] leading-relaxed overflow-x-hidden">
+		<a href="#hero" class="skip-link">{lang === 'es' ? 'Saltar al contenido' : 'Skip to content'}</a>
 		<slot />
 	</body>
 </html>
 
-<style is:global>
-	:root {
-		--bg-color: #0f0f0f;
-		--card-bg: #1a1a1a;
-		--text-main: #c5c8c6;
-		--text-dim: #707880;
-		--arch-blue: #1793d1;
-		--arch-red: #b30000;
-		--highlight: #ff3333;
+<style>
+	/* Un lector de teclado no deberia recorrer la navegacion entera para llegar
+	   al contenido. El enlace existe siempre y solo se ve al enfocarlo. */
+	.skip-link {
+		position: absolute;
+		left: -9999px;
+		top: 0;
+		background-color: var(--card-bg);
+		color: var(--highlight);
+		padding: 0.6rem 1rem;
+		border: 1px solid var(--highlight);
+		z-index: 50;
 	}
 
-	@keyframes blink {
-		0%, 100% { opacity: 1; }
-		50% { opacity: 0; }
-	}
-
-	.cursor {
-		animation: blink 1s infinite;
+	.skip-link:focus {
+		left: 1rem;
+		top: 1rem;
 	}
 </style>

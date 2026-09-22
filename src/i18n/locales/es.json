@@ -1,17 +1,20 @@
 {
   "site": {
     "title": "brandon@portfolio ~",
-    "description": "Portfolio de Brandon Quintero Mendoza - Desarrollador Full Stack con +4 años de experiencia"
+    "description": "Portfolio de Brandon Quintero Mendoza - Desarrollador Full Stack con +5 años de experiencia"
   },
   "nav": {
     "home": "./inicio",
     "experience": "./experiencia",
-    "contact": "./contacto"
+    "projects": "./proyectos",
+    "contact": "./contacto",
+    "education": "./educacion",
+    "skills": "./habilidades"
   },
   "hero": {
     "command": "cat /home/brandon/profile.txt",
     "bio": [
-      "> Desarrollador de Software e Ingeniero de Ciberseguridad | +4 años de experiencia",
+      "> Desarrollador de Software e Ingeniero de Ciberseguridad | +5 años de experiencia",
       "> Esta doble formación me brinda una perspectiva única—no solo construyo aplicaciones",
       "> escalables y de alto rendimiento; las diseño con seguridad en el núcleo desde el inicio.",
       "> Aunque mi base está en ciberseguridad, mi enfoque actual es el desarrollo de software,",
@@ -21,6 +24,105 @@
   },
   "experience": {
     "title": "$ cat ./experiencia.log"
+  },
+  "projects": {
+    "title": "$ ls -la ~/proyectos",
+    "list": {
+      "ajusta": {
+        "title": "Ajusta",
+        "company": "Proyecto personal",
+        "period": "[Agosto 2026 - Presente]",
+        "url": "https://ajusta.vercel.app",
+        "technologies": [
+          "TypeScript",
+          "Node.js",
+          "Express",
+          "PostgreSQL",
+          "Drizzle",
+          "React",
+          "Vite",
+          "Expo",
+          "Kotlin",
+          "pnpm",
+          "Local-first"
+        ],
+        "description": [
+          "<strong>Producto:</strong> Construí una app de finanzas personales que divide el mes, desde el día de pago, en tramos sobre el calendario, con bolsillos de ahorro, compromisos a cuotas y presupuestos por categoría.",
+          "",
+          "<strong>Arquitectura Local-first:</strong> Diseñé una sincronización offline donde la interfaz lee solo de la copia local (IndexedDB en web, SQLite en móvil) y cada escritura entra en una cola que sincroniza en segundo plano, con UUID generados en el cliente y resolución por última escritura.",
+          "",
+          "<strong>Monorepo Multiplataforma:</strong> Estructuré un monorepo con pnpm y un núcleo de dominio compartido por la API (Express y Drizzle sobre PostgreSQL), la web (React y Vite) y la app móvil (Expo con un módulo nativo en Kotlin).",
+          "",
+          "<strong>Seguridad por Diseño:</strong> Aislé los datos de cada usuario derivando su identidad solo de la sesión y filtrando cada consulta desde el repositorio; los accesos cruzados responden 404 para no revelar qué recursos existen."
+        ]
+      },
+      "jarvis": {
+        "title": "Jarvis (Android)",
+        "company": "Proyecto personal",
+        "period": "[Septiembre 2026]",
+        "technologies": [
+          "Kotlin",
+          "Jetpack Compose",
+          "Material 3",
+          "Room",
+          "DataStore",
+          "Coroutines",
+          "TextToSpeech",
+          "AlarmManager",
+          "Robolectric"
+        ],
+        "description": [
+          "<strong>Producto:</strong> Desarrollé con Kotlin y Jetpack Compose un asistente de recordatorios para Android que lee cada aviso en voz alta con TextToSpeech, incluso con el teléfono en silencio.",
+          "",
+          "<strong>Motor de Alarmas:</strong> Implementé alarmas exactas con AlarmManager que sobreviven reinicios, con servicio en primer plano, alertas a pantalla completa y reglas de repetición (única, semanal o por intervalos) persistidas en Room.",
+          "",
+          "<strong>Diseño Extensible:</strong> Modelé las acciones de cada recordatorio como sealed interfaces serializables, de modo que una acción nueva no toca el planificador, la base de datos ni la interfaz; escribí tests con Robolectric sobre la JVM."
+        ]
+      },
+      "whvn": {
+        "title": "WHVN",
+        "company": "Proyecto personal",
+        "period": "[Septiembre 2026]",
+        "url": "https://wallhaven-terminal.vercel.app",
+        "technologies": [
+          "Astro",
+          "TypeScript",
+          "Zod",
+          "SSR",
+          "Vercel",
+          "Vitest",
+          "REST API"
+        ],
+        "description": [
+          "<strong>Producto:</strong> Construí con Astro un navegador de fondos de pantalla sobre la API de Wallhaven, con estética de terminal, atajos de teclado y 48 resultados por página.",
+          "",
+          "<strong>Renderizado en Servidor:</strong> Centralicé las llamadas a la API en el servidor para ocultar la API key y resolver la falta de CORS, validando respuestas con Zod y cacheándolas con TTL y deduplicación para respetar el límite de 45 peticiones por minuto.",
+          "",
+          "<strong>URL como Estado:</strong> Llevé filtros, orden y paginación a la URL, de modo que los enlaces se comparten, el botón atrás funciona y la página opera incluso sin JavaScript."
+        ]
+      },
+      "blog": {
+        "title": "Blog técnico",
+        "company": "Proyecto personal",
+        "period": "[Agosto 2026 - Presente]",
+        "url": "https://brantuxlinux.github.io",
+        "technologies": [
+          "Astro",
+          "Node.js",
+          "GitHub Actions",
+          "GitHub Pages",
+          "Obsidian",
+          "RSS"
+        ],
+        "description": [
+          "<strong>Producto:</strong> Publiqué mi blog técnico con Astro en GitHub Pages, con RSS, sitemap y versiones en español e inglés.",
+          "",
+          "<strong>Pipeline de Publicación:</strong> Automaticé con GitHub Actions el paso de mis notas de Obsidian a la web: solo las notas marcadas se sincronizan, transforman y despliegan, sin CMS.",
+          "",
+          "<strong>Transformación de Contenido:</strong> Escribí un script en Node.js que convierte wikilinks en enlaces reales sin generar nunca un enlace roto y que aborta ante colisiones de URL antes de publicar."
+        ]
+      }
+    }
   },
   "social": {
     "cv": {
@@ -45,10 +147,21 @@
       "title": "GitHub"
     },
     "blog": {
-      "command": "$ exec ./bitskingdom/blog.html",
-      "status": "[HTML]",
-      "title": "Blog",
+      "command": "$ exec ./blog/index.html",
+      "status": "[WWW]",
+      "title": "Blog propio",
+      "url": "https://brantuxlinux.github.io"
+    },
+    "blogCompany": {
+      "command": "$ cat ./bitskingdom/articulos.md",
+      "status": "[DOCS]",
+      "title": "Artículos publicados en Bits Kingdom",
       "url": "https://bitskingdom.com/blog/author/brandon/"
+    },
+    "github2": {
+      "command": "$ git remote show alt",
+      "status": "[REPO]",
+      "title": "GitHub secundario"
     }
   },
   "footer": {
@@ -57,10 +170,42 @@
   },
   "jobs": {
     "job1": {
+      "title": "Full-stack Developer & AI Engineer",
+      "company": "Ruufe (Presencial)",
+      "period": "[Febrero 2026 - Presente]",
+      "technologies": [
+        "Next.js",
+        "Shopify API",
+        "Clean Architecture",
+        "Design Patterns",
+        "AI Agents",
+        "SOLID"
+      ],
+      "description": [
+        "<strong>Arquitectura de Software:</strong> Diseño e implementación de soluciones e-commerce y marketplace bajo principios de Clean Architecture y patrones de diseño, garantizando código escalable, mantenible y desacoplado.",
+        "",
+        "<strong>Desarrollo E-commerce:</strong> Construcción de tiendas y plataformas de comercio electrónico sobre Shopify (temas, apps e integraciones vía Shopify API) y desarrollo de soluciones de e-commerce y marketplace a medida con Next.js.",
+        "",
+        "<strong>Agentes de IA para Negocio:</strong> Diseño e integración de agentes de inteligencia artificial especializados en lógica de negocio, automatizando procesos comerciales y de decisión dentro de los flujos de e-commerce.",
+        "",
+        "<strong>Buenas Prácticas:</strong> Aplicación de principios SOLID y arquitectura limpia en todo el stack, asegurando consistencia entre frontend, backend e integraciones de terceros."
+      ]
+    },
+    "job2": {
       "title": "Desarrollador Mobile & Analista de Datos",
       "company": "Bits Kingdom (Remoto, EE.UU.)",
-      "period": "[Abril 2024 - Diciembre 2025]",
-      "technologies": ["React Native", "Python", "Apache Airflow", "Git", "GitHub", "Git Flow", "ETL", "Cloudflare", "DDoS Mitigation"],
+      "period": "[Abril 2025 - Diciembre 2025]",
+      "technologies": [
+        "React Native",
+        "Python",
+        "Apache Airflow",
+        "Git",
+        "GitHub",
+        "Git Flow",
+        "ETL",
+        "Cloudflare",
+        "DDoS Mitigation"
+      ],
       "description": [
         "<strong>Desarrollo Móvil:</strong> Diseñé e implementé nuevas funcionalidades en aplicaciones móviles utilizando React Native, enfocándome en la optimización del rendimiento y la experiencia de usuario (UX/UI).",
         "",
@@ -71,11 +216,18 @@
         "<strong>Mitigación de Incidente Crítico (DDoS):</strong> Respondí inmediatamente para solucionar un ataque DDoS en curso. Apliqué técnicas de hacking y análisis de tráfico para identificar el vector de ataque y configuré Cloudflare on-the-fly (Modo I'm Under Attack, Rate Limiting y WAF), logrando mitigar el 99% del tráfico malicioso y restablecer la disponibilidad del servicio en minutos."
       ]
     },
-    "job2": {
+    "job3": {
       "title": "Consultor Técnico y Mentor",
       "company": "Freelance",
       "period": "[Septiembre 2024 - Marzo 2025]",
-      "technologies": ["Node.js", "React", "TypeScript", "Git", "Clean Architecture", "Design Patterns"],
+      "technologies": [
+        "Node.js",
+        "React",
+        "TypeScript",
+        "Git",
+        "Clean Architecture",
+        "Design Patterns"
+      ],
       "description": [
         "<strong>Consultoría:</strong> Proveí soluciones técnicas a medida para diversos clientes, enfocándome en la refactorización de código heredado para mejorar su mantenibilidad y escalabilidad.",
         "",
@@ -84,11 +236,20 @@
         "<strong>Optimización:</strong> Analicé y mejoré flujos de trabajo de desarrollo, reduciendo la deuda técnica y acelerando los tiempos de entrega."
       ]
     },
-    "job3": {
+    "job4": {
       "title": "Full-stack Developer",
       "company": "DisruptiveIT",
-      "period": "[Abril 2022 - Julio 2024]",
-      "technologies": ["ReactJS", "Redux", "Node.js", "Express", "Prisma", "Docker", "CI/CD", "DDoS Protection"],
+      "period": "[Abril 2021 - Julio 2024]",
+      "technologies": [
+        "ReactJS",
+        "Redux",
+        "Node.js",
+        "Express",
+        "Prisma",
+        "Docker",
+        "CI/CD",
+        "DDoS Protection"
+      ],
       "description": [
         "<strong>Modernización de Sistemas:</strong> Lideré la migración de plataformas legadas hacia arquitecturas modernas de SPA (Single Page Application) utilizando ReactJS y Redux, mejorando significativamente la velocidad y reactividad de las interfaces.",
         "",
@@ -97,11 +258,18 @@
         "<strong>Infraestructura Segura:</strong> Fortalecí la seguridad de las aplicaciones mediante la implementación de protecciones contra ataques DDoS y configuré pipelines de CI/CD para despliegues automatizados y seguros."
       ]
     },
-    "job4": {
+    "job5": {
       "title": "Líder Técnico",
-      "company": "Arrendamientos del Norte",
-      "period": "[Abril 2022 - Diciembre 2023]",
-      "technologies": ["RESTful API", "React", "React Native", "Node.js", "SQL", "Real-time Sync"],
+      "company": "Arrendamientos del Norte (Proyecto de grado SENA)",
+      "period": "[Mayo 2022 - Diciembre 2023]",
+      "technologies": [
+        "RESTful API",
+        "React",
+        "React Native",
+        "Node.js",
+        "SQL",
+        "Real-time Sync"
+      ],
       "description": [
         "<strong>Gestión de Producto:</strong> Dirigí el ciclo de vida completo del desarrollo de RCService, una solución administrativa integral para la gestión inmobiliaria.",
         "",
@@ -112,6 +280,64 @@
   "lang": {
     "switch": "$ locale-gen en_US",
     "current": "ES"
+  },
+  "education": {
+    "title": "$ cat ./educacion.log",
+    "items": [
+      {
+        "institution": "SENA — Centro de Servicios y Gestión Empresarial (CESGE)",
+        "degree": "Análisis y Desarrollo de Software (ADSO)",
+        "honors": "Cuadro de Honor en Programación"
+      }
+    ]
+  },
+  "skills": {
+    "title": "$ ls -la ./habilidades/",
+    "groups": [
+      {
+        "name": "sistemas/",
+        "items": [
+          "Gestión avanzada de sistemas operativos basados en Linux",
+          "Automatización de tareas y administración de servidores con Bash y Python",
+          "Experiencia avanzada con Docker para configuración de entornos de desarrollo y producción"
+        ]
+      },
+      {
+        "name": "seguridad/",
+        "items": [
+          "Aplicación de prácticas de seguridad informática para proteger sistemas y aplicaciones"
+        ]
+      },
+      {
+        "name": "desarrollo/",
+        "items": [
+          "Dominio de TypeScript, React, Next.js, Node.js y React Native"
+        ]
+      },
+      {
+        "name": "datos/",
+        "items": [
+          "Amplios conocimientos en diseño y administración de bases de datos SQL y NoSQL: MySQL, SQLite, MongoDB, MariaDB, PostgreSQL"
+        ]
+      },
+      {
+        "name": "colaboracion/",
+        "items": [
+          "Experto en Git y GitHub para gestión de repositorios y flujos colaborativos",
+          "Experiencia en metodologías ágiles como Scrum"
+        ]
+      }
+    ],
+    "languagesTitle": "$ locale -a",
+    "languages": [
+      {
+        "name": "Español",
+        "level": "Nativo"
+      },
+      {
+        "name": "Inglés",
+        "level": "Intermedio"
+      }
+    ]
   }
 }
-

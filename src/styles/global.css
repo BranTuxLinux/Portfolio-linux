@@ -1,1 +1,67 @@
 @import "tailwindcss";
+
+/* Paleta de la terminal. Un solo sitio: los componentes la consumen por token,
+   nunca con el hex escrito a mano. */
+:root {
+    --bg-color: #0f0f0f;
+    --card-bg: #1a1a1a;
+    --card-bg-hover: #202020;
+    --border: #333;
+    --text-main: #c5c8c6;
+    --text-dim: #707880;
+    --arch-blue: #1793d1;
+    --arch-red: #b30000;
+    --arch-teal: #8abeb7;
+    --arch-green: #b5bd68;
+    --arch-yellow: #f0c674;
+    --highlight: #ff3333;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Encabezado de seccion: mismo tratamiento en experiencia, educacion y
+   habilidades para que las tres lean como la misma pagina. */
+.section-title {
+    display: inline-block;
+    font-size: 1.5rem;
+    line-height: 1.3;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.4rem;
+    color: var(--highlight);
+    border-bottom: 1px dashed var(--text-dim);
+}
+
+/* El foco por teclado tiene que verse: es navegacion, no decoracion. */
+:where(a, button, label, [tabindex]):focus-visible {
+    outline: 2px solid var(--highlight);
+    outline-offset: 2px;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.cursor {
+    animation: blink 1s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .cursor {
+        animation: none;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

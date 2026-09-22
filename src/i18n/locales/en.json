@@ -1,17 +1,20 @@
 {
   "site": {
     "title": "brandon@portfolio ~",
-    "description": "Brandon Quintero Mendoza Portfolio - Full Stack Developer with +4 years of experience"
+    "description": "Brandon Quintero Mendoza Portfolio - Full Stack Developer with +5 years of experience"
   },
   "nav": {
     "home": "./home",
     "experience": "./experience",
-    "contact": "./contact"
+    "projects": "./projects",
+    "contact": "./contact",
+    "education": "./education",
+    "skills": "./skills"
   },
   "hero": {
     "command": "cat /home/brandon/profile.txt",
     "bio": [
-      "> Software Developer and Cybersecurity Engineer | +4 years of experience",
+      "> Software Developer and Cybersecurity Engineer | +5 years of experience",
       "> This dual background gives me a unique perspective—I don't just build scalable,",
       "> high-performing applications; I design them with security at the core, right from the start.",
       "> While my foundation lies in cybersecurity, my current focus is on software development,",
@@ -21,6 +24,105 @@
   },
   "experience": {
     "title": "$ cat ./experience.log"
+  },
+  "projects": {
+    "title": "$ ls -la ~/projects",
+    "list": {
+      "ajusta": {
+        "title": "Ajusta",
+        "company": "Personal project",
+        "period": "[August 2026 - Present]",
+        "url": "https://ajusta.vercel.app",
+        "technologies": [
+          "TypeScript",
+          "Node.js",
+          "Express",
+          "PostgreSQL",
+          "Drizzle",
+          "React",
+          "Vite",
+          "Expo",
+          "Kotlin",
+          "pnpm",
+          "Local-first"
+        ],
+        "description": [
+          "<strong>Product:</strong> Built a personal finance app that splits the month, starting on payday, into calendar segments, with savings pockets, installment commitments and per-category budgets.",
+          "",
+          "<strong>Local-first Architecture:</strong> Designed offline sync where the UI reads only from the local copy (IndexedDB on web, SQLite on mobile) and every write goes into a queue that syncs in the background, with client-generated UUIDs and last-write-wins resolution.",
+          "",
+          "<strong>Cross-platform Monorepo:</strong> Structured a pnpm monorepo with a domain core shared by the API (Express and Drizzle on PostgreSQL), the web app (React and Vite) and the mobile app (Expo with a native Kotlin module).",
+          "",
+          "<strong>Secure by Design:</strong> Isolated each user's data by deriving identity only from the session and scoping every query at the repository layer; cross-tenant reads return 404 so resource existence is never leaked."
+        ]
+      },
+      "jarvis": {
+        "title": "Jarvis (Android)",
+        "company": "Personal project",
+        "period": "[September 2026]",
+        "technologies": [
+          "Kotlin",
+          "Jetpack Compose",
+          "Material 3",
+          "Room",
+          "DataStore",
+          "Coroutines",
+          "TextToSpeech",
+          "AlarmManager",
+          "Robolectric"
+        ],
+        "description": [
+          "<strong>Product:</strong> Developed an Android reminder assistant with Kotlin and Jetpack Compose that reads every alert out loud with TextToSpeech, even when the phone is on silent.",
+          "",
+          "<strong>Alarm Engine:</strong> Implemented exact alarms with AlarmManager that survive reboots, with a foreground service, full-screen alerts and repeat rules (once, weekly or intra-day intervals) persisted in Room.",
+          "",
+          "<strong>Extensible Design:</strong> Modeled each reminder's actions as serializable sealed interfaces, so a new action never touches the scheduler, the database or the UI; wrote Robolectric tests running on the JVM."
+        ]
+      },
+      "whvn": {
+        "title": "WHVN",
+        "company": "Personal project",
+        "period": "[September 2026]",
+        "url": "https://wallhaven-terminal.vercel.app",
+        "technologies": [
+          "Astro",
+          "TypeScript",
+          "Zod",
+          "SSR",
+          "Vercel",
+          "Vitest",
+          "REST API"
+        ],
+        "description": [
+          "<strong>Product:</strong> Built a wallpaper browser with Astro on top of the Wallhaven API, with a terminal look, keyboard shortcuts and 48 results per page.",
+          "",
+          "<strong>Server-side Rendering:</strong> Moved every API call to the server to keep the API key secret and work around the missing CORS headers, validating responses with Zod and caching them with TTL and deduplication to stay under the 45 requests-per-minute limit.",
+          "",
+          "<strong>URL as State:</strong> Put filters, sorting and pagination in the URL, so links are shareable, the back button works and the page runs even without JavaScript."
+        ]
+      },
+      "blog": {
+        "title": "Tech blog",
+        "company": "Personal project",
+        "period": "[August 2026 - Present]",
+        "url": "https://brantuxlinux.github.io",
+        "technologies": [
+          "Astro",
+          "Node.js",
+          "GitHub Actions",
+          "GitHub Pages",
+          "Obsidian",
+          "RSS"
+        ],
+        "description": [
+          "<strong>Product:</strong> Launched my tech blog with Astro on GitHub Pages, with RSS, sitemap and Spanish and English versions.",
+          "",
+          "<strong>Publishing Pipeline:</strong> Automated with GitHub Actions the path from my Obsidian notes to the web: only flagged notes are synced, transformed and deployed, with no CMS.",
+          "",
+          "<strong>Content Transformation:</strong> Wrote a Node.js script that turns wikilinks into real links without ever producing a broken one, and aborts on URL collisions before publishing."
+        ]
+      }
+    }
   },
   "social": {
     "cv": {
@@ -45,10 +147,21 @@
       "title": "GitHub"
     },
     "blog": {
-      "command": "$ exec ./bitskingdom/blog.html",
-      "status": "[HTML]",
-      "title": "Blog",
+      "command": "$ exec ./blog/index.html",
+      "status": "[WWW]",
+      "title": "Personal blog",
+      "url": "https://brantuxlinux.github.io"
+    },
+    "blogCompany": {
+      "command": "$ cat ./bitskingdom/articles.md",
+      "status": "[DOCS]",
+      "title": "Articles published at Bits Kingdom",
       "url": "https://bitskingdom.com/blog/author/brandon/"
+    },
+    "github2": {
+      "command": "$ git remote show alt",
+      "status": "[REPO]",
+      "title": "Secondary GitHub"
     }
   },
   "footer": {
@@ -57,10 +170,42 @@
   },
   "jobs": {
     "job1": {
+      "title": "Full-stack Developer & AI Engineer",
+      "company": "Ruufe (On-site)",
+      "period": "[February 2026 - Present]",
+      "technologies": [
+        "Next.js",
+        "Shopify API",
+        "Clean Architecture",
+        "Design Patterns",
+        "AI Agents",
+        "SOLID"
+      ],
+      "description": [
+        "<strong>Software Architecture:</strong> Design and implementation of e-commerce and marketplace solutions following Clean Architecture principles and design patterns, ensuring scalable, maintainable, and decoupled code.",
+        "",
+        "<strong>E-commerce Development:</strong> Built online stores and commerce platforms on Shopify (themes, apps, and integrations via the Shopify API) and developed custom e-commerce and marketplace solutions with Next.js.",
+        "",
+        "<strong>AI Agents for Business:</strong> Designed and integrated AI agents specialized in business logic, automating commercial and decision-making processes within e-commerce flows.",
+        "",
+        "<strong>Best Practices:</strong> Applied SOLID principles and clean architecture across the stack, ensuring consistency between frontend, backend, and third-party integrations."
+      ]
+    },
+    "job2": {
       "title": "Mobile Developer & Data Analyst",
       "company": "Bits Kingdom (Remote, USA)",
-      "period": "[April 2024 - December 2025]",
-      "technologies": ["React Native", "Python", "Apache Airflow", "Git", "GitHub", "Git Flow", "ETL", "Cloudflare", "DDoS Mitigation"],
+      "period": "[April 2025 - December 2025]",
+      "technologies": [
+        "React Native",
+        "Python",
+        "Apache Airflow",
+        "Git",
+        "GitHub",
+        "Git Flow",
+        "ETL",
+        "Cloudflare",
+        "DDoS Mitigation"
+      ],
       "description": [
         "<strong>Mobile Development:</strong> Designed and implemented new features in mobile applications using React Native, focusing on performance optimization and user experience (UX/UI).",
         "",
@@ -71,11 +216,18 @@
         "<strong>Critical Incident Mitigation (DDoS):</strong> Immediately responded to and resolved an active DDoS attack. Applied hacking techniques and traffic analysis to identify the attack vector and configured Cloudflare on-the-fly (I'm Under Attack Mode, Rate Limiting, and WAF rules), successfully mitigating 99% of malicious traffic and restoring service availability within minutes."
       ]
     },
-    "job2": {
+    "job3": {
       "title": "Technical Consultant and Mentor",
       "company": "Freelance",
       "period": "[September 2024 - March 2025]",
-      "technologies": ["Node.js", "React", "TypeScript", "Git", "Clean Architecture", "Design Patterns"],
+      "technologies": [
+        "Node.js",
+        "React",
+        "TypeScript",
+        "Git",
+        "Clean Architecture",
+        "Design Patterns"
+      ],
       "description": [
         "<strong>Consulting:</strong> Provided custom technical solutions for various clients, focusing on refactoring legacy code to improve its maintainability and scalability.",
         "",
@@ -84,11 +236,20 @@
         "<strong>Optimization:</strong> Analyzed and improved development workflows, reducing technical debt and accelerating delivery times."
       ]
     },
-    "job3": {
+    "job4": {
       "title": "Full-stack Developer",
       "company": "DisruptiveIT",
-      "period": "[April 2022 - July 2024]",
-      "technologies": ["ReactJS", "Redux", "Node.js", "Express", "Prisma", "Docker", "CI/CD", "DDoS Protection"],
+      "period": "[April 2021 - July 2024]",
+      "technologies": [
+        "ReactJS",
+        "Redux",
+        "Node.js",
+        "Express",
+        "Prisma",
+        "Docker",
+        "CI/CD",
+        "DDoS Protection"
+      ],
       "description": [
         "<strong>System Modernization:</strong> Led the migration of legacy platforms to modern Single Page Application (SPA) architectures using ReactJS and Redux, significantly improving interface speed and responsiveness.",
         "",
@@ -97,11 +258,18 @@
         "<strong>Secure Infrastructure:</strong> Strengthened application security by implementing DDoS attack protections and configured CI/CD pipelines for automated and secure deployments."
       ]
     },
-    "job4": {
+    "job5": {
       "title": "Technical Lead",
-      "company": "Arrendamientos del Norte",
-      "period": "[April 2022 - December 2023]",
-      "technologies": ["RESTful API", "React", "React Native", "Node.js", "SQL", "Real-time Sync"],
+      "company": "Arrendamientos del Norte (SENA degree project)",
+      "period": "[May 2022 - December 2023]",
+      "technologies": [
+        "RESTful API",
+        "React",
+        "React Native",
+        "Node.js",
+        "SQL",
+        "Real-time Sync"
+      ],
       "description": [
         "<strong>Product Management:</strong> Directed the complete development lifecycle of RCService, a comprehensive administrative solution for real estate management.",
         "",
@@ -112,6 +280,64 @@
   "lang": {
     "switch": "$ locale-gen es_ES",
     "current": "EN"
+  },
+  "education": {
+    "title": "$ cat ./education.log",
+    "items": [
+      {
+        "institution": "SENA — Center for Services and Business Management (CESGE)",
+        "degree": "Software Analysis and Development (ADSO)",
+        "honors": "Honor Roll in Programming"
+      }
+    ]
+  },
+  "skills": {
+    "title": "$ ls -la ./skills/",
+    "groups": [
+      {
+        "name": "systems/",
+        "items": [
+          "Advanced management of Linux-based operating systems",
+          "Task automation and server administration with Bash and Python",
+          "Advanced experience with Docker for development and production environments"
+        ]
+      },
+      {
+        "name": "security/",
+        "items": [
+          "Application of information security practices to protect systems and applications"
+        ]
+      },
+      {
+        "name": "development/",
+        "items": [
+          "Proficiency in TypeScript, React, Next.js, Node.js and React Native"
+        ]
+      },
+      {
+        "name": "data/",
+        "items": [
+          "Extensive knowledge in SQL and NoSQL database design and administration: MySQL, SQLite, MongoDB, MariaDB, PostgreSQL"
+        ]
+      },
+      {
+        "name": "collaboration/",
+        "items": [
+          "Expert in Git and GitHub for repository management and collaborative workflows",
+          "Experience with agile methodologies such as Scrum"
+        ]
+      }
+    ],
+    "languagesTitle": "$ locale -a",
+    "languages": [
+      {
+        "name": "Spanish",
+        "level": "Native"
+      },
+      {
+        "name": "English",
+        "level": "Intermediate"
+      }
+    ]
   }
 }
-

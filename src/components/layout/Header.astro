@@ -7,14 +7,18 @@ const t = useTranslations(lang);
 
 const navigationLinks = [
     { href: "#hero", label: t('nav.home') },
-    { href: "#experience", label: t('nav.experience') }
+    { href: "#experience", label: t('nav.experience') },
+    { href: "#projects", label: t('nav.projects') },
+    { href: "#education", label: t('nav.education') },
+    { href: "#skills", label: t('nav.skills') },
+    { href: "#social-links", label: t('nav.contact') }
 ];
 ---
 
-<header class="flex justify-between items-center py-5 border-b-2 border-[#b30000] mb-10 flex-wrap gap-3">
-    <div class="font-bold text-xl text-[#ff3333]">
+<header class="flex justify-between items-center py-5 border-b-2 border-[var(--arch-red)] mb-10 flex-wrap gap-3">
+    <div class="font-bold text-xl text-[var(--highlight)]">
         <svg
-            class="w-6 h-6 fill-[#ff3333] align-middle inline mr-2.5"
+            class="w-6 h-6 fill-[var(--highlight)] align-middle inline mr-2.5"
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
             aria-label="Arch Linux Logo"
@@ -26,11 +30,11 @@ const navigationLinks = [
         ~/dev/portfolio
     </div>
     <div class="flex items-center gap-5">
-        <nav class="flex gap-5" aria-label="Main navigation">
+        <nav class="flex gap-4 flex-wrap" aria-label={t('nav.home')}>
             {navigationLinks.map((link) => (
                 <a 
                     href={link.href} 
-                    class="text-[#707880] text-sm transition-all duration-300 hover:text-[#ff3333] hover:underline"
+                    class="text-[var(--text-dim)] text-sm transition-colors duration-200 hover:text-[var(--highlight)] hover:underline"
                 >
                     {link.label}
                 </a>
