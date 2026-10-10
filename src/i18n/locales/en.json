@@ -14,7 +14,7 @@
   "hero": {
     "command": "cat /home/brandon/profile.txt",
     "bio": [
-      "> Software Developer and Cybersecurity Engineer | +5 years of experience",
+      "> Full-stack Developer with a cybersecurity background | +5 years of experience",
       "> This dual background gives me a unique perspective—I don't just build scalable,",
       "> high-performing applications; I design them with security at the core, right from the start.",
       "> While my foundation lies in cybersecurity, my current focus is on software development,",
@@ -213,7 +213,7 @@
         "",
         "<strong>Quality & DevOps:</strong> Established code quality standards through advanced Git and GitHub management. Implemented branching strategies (Git Flow), thorough code reviews, and collaborative workflows to synchronize distributed teams.",
         "",
-        "<strong>Critical Incident Mitigation (DDoS):</strong> Immediately responded to and resolved an active DDoS attack. Applied hacking techniques and traffic analysis to identify the attack vector and configured Cloudflare on-the-fly (I'm Under Attack Mode, Rate Limiting, and WAF rules), successfully mitigating 99% of malicious traffic and restoring service availability within minutes."
+        "<strong>Critical Incident Mitigation (DDoS):</strong> Immediately responded to and resolved an active DDoS attack. Analyzed traffic to identify the attack vector and configured Cloudflare on-the-fly (I'm Under Attack Mode, Rate Limiting, and WAF rules), successfully mitigating 99% of malicious traffic and restoring service availability within minutes."
       ]
     },
     "job3": {

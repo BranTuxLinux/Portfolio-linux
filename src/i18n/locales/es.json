@@ -14,7 +14,7 @@
   "hero": {
     "command": "cat /home/brandon/profile.txt",
     "bio": [
-      "> Desarrollador de Software e Ingeniero de Ciberseguridad | +5 años de experiencia",
+      "> Desarrollador Full-stack con base en ciberseguridad | +5 años de experiencia",
       "> Esta doble formación me brinda una perspectiva única—no solo construyo aplicaciones",
       "> escalables y de alto rendimiento; las diseño con seguridad en el núcleo desde el inicio.",
       "> Aunque mi base está en ciberseguridad, mi enfoque actual es el desarrollo de software,",
@@ -213,7 +213,7 @@
         "",
         "<strong>Calidad y DevOps:</strong> Establecí estándares de calidad de código mediante una gestión avanzada de Git y GitHub. Implementé estrategias de ramificación (Git Flow), revisiones de código exhaustivas y flujos de trabajo colaborativos para sincronizar equipos distribuidos.",
         "",
-        "<strong>Mitigación de Incidente Crítico (DDoS):</strong> Respondí inmediatamente para solucionar un ataque DDoS en curso. Apliqué técnicas de hacking y análisis de tráfico para identificar el vector de ataque y configuré Cloudflare on-the-fly (Modo I'm Under Attack, Rate Limiting y WAF), logrando mitigar el 99% del tráfico malicioso y restablecer la disponibilidad del servicio en minutos."
+        "<strong>Mitigación de Incidente Crítico (DDoS):</strong> Respondí inmediatamente para solucionar un ataque DDoS en curso. Realicé análisis de tráfico e identifiqué el vector de ataque y configuré Cloudflare on-the-fly (Modo I'm Under Attack, Rate Limiting y WAF), logrando mitigar el 99% del tráfico malicioso y restablecer la disponibilidad del servicio en minutos."
       ]
     },
     "job3": {
