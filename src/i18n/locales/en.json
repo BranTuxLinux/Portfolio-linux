@@ -57,12 +57,14 @@
         ]
       },
       "jarvis": {
-        "title": "Jarvis (Android)",
+        "title": "Jarvis — AI Assistant for Google Calendar",
         "company": "Personal project",
         "period": "[September 2026]",
         "technologies": [
           "Kotlin",
           "Jetpack Compose",
+          "Gemini API",
+          "Google Calendar API",
           "Material 3",
           "Room",
           "DataStore",
@@ -72,11 +74,13 @@
           "Robolectric"
         ],
         "description": [
-          "<strong>Product:</strong> Developed an Android reminder assistant with Kotlin and Jetpack Compose that reads every alert out loud with TextToSpeech, even when the phone is on silent.",
+          "<strong>Product:</strong> Designed and built my own Android AI assistant in Kotlin and Jetpack Compose that works as a Google Calendar plugin: it turns calendar events into spoken alerts with TextToSpeech, even when the phone is on silent.",
+          "",
+          "<strong>Gemini Integration:</strong> Connected the assistant to Gemini to interpret natural-language instructions and turn them into reminders and calendar events, with no forms.",
           "",
           "<strong>Alarm Engine:</strong> Implemented exact alarms with AlarmManager that survive reboots, with a foreground service, full-screen alerts and repeat rules (once, weekly or intra-day intervals) persisted in Room.",
           "",
-          "<strong>Extensible Design:</strong> Modeled each reminder's actions as serializable sealed interfaces, so a new action never touches the scheduler, the database or the UI; wrote Robolectric tests running on the JVM."
+          "<strong>Extensible Architecture:</strong> Modeled each reminder's actions as serializable sealed interfaces, so adding a new integration never touches the scheduler, the database or the UI; wrote Robolectric tests running on the JVM."
         ]
       },
       "whvn": {

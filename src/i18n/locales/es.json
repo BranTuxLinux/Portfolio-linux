@@ -57,12 +57,14 @@
         ]
       },
       "jarvis": {
-        "title": "Jarvis (Android)",
+        "title": "Jarvis — Asistente de IA para Google Calendar",
         "company": "Proyecto personal",
         "period": "[Septiembre 2026]",
         "technologies": [
           "Kotlin",
           "Jetpack Compose",
+          "Gemini API",
+          "Google Calendar API",
           "Material 3",
           "Room",
           "DataStore",
@@ -72,11 +74,13 @@
           "Robolectric"
         ],
         "description": [
-          "<strong>Producto:</strong> Desarrollé con Kotlin y Jetpack Compose un asistente de recordatorios para Android que lee cada aviso en voz alta con TextToSpeech, incluso con el teléfono en silencio.",
+          "<strong>Producto:</strong> Diseñé y desarrollé en Kotlin y Jetpack Compose un asistente de IA propio para Android que funciona como plugin de Google Calendar: convierte los eventos del calendario en avisos hablados con TextToSpeech, incluso con el teléfono en silencio.",
+          "",
+          "<strong>Integración con Gemini:</strong> Conecté el asistente con Gemini para interpretar instrucciones en lenguaje natural y convertirlas en recordatorios y eventos del calendario, sin formularios.",
           "",
           "<strong>Motor de Alarmas:</strong> Implementé alarmas exactas con AlarmManager que sobreviven reinicios, con servicio en primer plano, alertas a pantalla completa y reglas de repetición (única, semanal o por intervalos) persistidas en Room.",
           "",
-          "<strong>Diseño Extensible:</strong> Modelé las acciones de cada recordatorio como sealed interfaces serializables, de modo que una acción nueva no toca el planificador, la base de datos ni la interfaz; escribí tests con Robolectric sobre la JVM."
+          "<strong>Arquitectura Extensible:</strong> Modelé las acciones de cada recordatorio como sealed interfaces serializables, de modo que sumar una integración nueva no toca el planificador, la base de datos ni la interfaz; escribí tests con Robolectric sobre la JVM."
         ]
       },
       "whvn": {
