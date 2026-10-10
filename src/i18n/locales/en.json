@@ -179,6 +179,7 @@
         "Clean Architecture",
         "Design Patterns",
         "AI Agents",
+        "Obsidian",
         "SOLID",
         "Security Audits",
         "OWASP"
@@ -189,6 +190,8 @@
         "<strong>E-commerce Development:</strong> Built online stores and commerce platforms on Shopify (themes, apps, and integrations via the Shopify API) and developed custom e-commerce and marketplace solutions with Next.js.",
         "",
         "<strong>AI Agents for Business:</strong> Designed and integrated AI agents specialized in business logic, automating commercial and decision-making processes within e-commerce flows.",
+        "",
+        "<strong>AI Agent Knowledge Brain:</strong> Designed and built an Obsidian knowledge base that centralizes the company's business logic, structured so AI agents can query and use company information efficiently and accurately.",
         "",
         "<strong>Cybersecurity Audits:</strong> Performing security audits of the e-commerce platforms (code, configuration and third-party integrations) using the OWASP Top 10 as a baseline, then building the fixes: remediating vulnerabilities, hardening configurations and embedding security by design into the development lifecycle.",
         "",
