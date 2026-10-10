@@ -15,7 +15,8 @@ const jobs = ['job1', 'job2', 'job3', 'job4', 'job5'];
         {jobs.map((jobKey) => {
             const job = t(`jobs.${jobKey}`);
             return (
-                <JobCard 
+                <JobCard
+                    id={`job-${jobKey}`}
                     title={job.title}
                     company={job.company}
                     period={job.period}

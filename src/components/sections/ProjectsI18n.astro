@@ -16,6 +16,7 @@ const projects = ['ajusta', 'jarvis', 'whvn', 'blog'];
             const project = t(`projects.list.${projectKey}`);
             return (
                 <JobCard
+                    id={`project-${projectKey}`}
                     title={project.title}
                     company={project.company}
                     period={project.period}

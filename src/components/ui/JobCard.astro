@@ -2,6 +2,8 @@
 import TechTag from './TechTag.astro';
 
 interface Props {
+    /** Clave estable y única por tarjeta (p. ej. la clave i18n); enlaza el checkbox con su label. */
+    id: string;
     title: string;
     company: string;
     period: string;
@@ -10,9 +12,11 @@ interface Props {
     url?: string;
 }
 
-const { title, company, period, technologies, url } = Astro.props;
-// Estable entre renders: el id sale del contenido, no del azar.
-const uniqueId = `job-${`${company}-${period}`.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}`;
+const { id, title, company, period, technologies, url } = Astro.props;
+// Sale de la clave i18n, no de company/period: varios proyectos comparten
+// "Proyecto personal" y el mismo periodo, y un id repetido hace que el label
+// abra la tarjeta equivocada.
+const uniqueId = `toggle-${id}`;
 ---
 
 <article class="job-card bg-[var(--card-bg)] border border-[var(--border)] p-5 transition-all duration-200 relative hover:border-[var(--arch-red)] hover:translate-x-1.5">
