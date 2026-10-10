@@ -179,7 +179,9 @@
         "Clean Architecture",
         "Design Patterns",
         "AI Agents",
-        "SOLID"
+        "SOLID",
+        "Security Audits",
+        "OWASP"
       ],
       "description": [
         "<strong>Software Architecture:</strong> Design and implementation of e-commerce and marketplace solutions following Clean Architecture principles and design patterns, ensuring scalable, maintainable, and decoupled code.",
@@ -187,6 +189,8 @@
         "<strong>E-commerce Development:</strong> Built online stores and commerce platforms on Shopify (themes, apps, and integrations via the Shopify API) and developed custom e-commerce and marketplace solutions with Next.js.",
         "",
         "<strong>AI Agents for Business:</strong> Designed and integrated AI agents specialized in business logic, automating commercial and decision-making processes within e-commerce flows.",
+        "",
+        "<strong>Cybersecurity Audits:</strong> Performing security audits of the e-commerce platforms (code, configuration and third-party integrations) using the OWASP Top 10 as a baseline, then building the fixes: remediating vulnerabilities, hardening configurations and embedding security by design into the development lifecycle.",
         "",
         "<strong>Best Practices:</strong> Applied SOLID principles and clean architecture across the stack, ensuring consistency between frontend, backend, and third-party integrations."
       ]

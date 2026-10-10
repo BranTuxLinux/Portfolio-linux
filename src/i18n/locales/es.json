@@ -179,7 +179,9 @@
         "Clean Architecture",
         "Design Patterns",
         "AI Agents",
-        "SOLID"
+        "SOLID",
+        "Security Audits",
+        "OWASP"
       ],
       "description": [
         "<strong>Arquitectura de Software:</strong> Diseño e implementación de soluciones e-commerce y marketplace bajo principios de Clean Architecture y patrones de diseño, garantizando código escalable, mantenible y desacoplado.",
@@ -187,6 +189,8 @@
         "<strong>Desarrollo E-commerce:</strong> Construcción de tiendas y plataformas de comercio electrónico sobre Shopify (temas, apps e integraciones vía Shopify API) y desarrollo de soluciones de e-commerce y marketplace a medida con Next.js.",
         "",
         "<strong>Agentes de IA para Negocio:</strong> Diseño e integración de agentes de inteligencia artificial especializados en lógica de negocio, automatizando procesos comerciales y de decisión dentro de los flujos de e-commerce.",
+        "",
+        "<strong>Auditorías de Ciberseguridad:</strong> Ejecución de auditorías de seguridad sobre las plataformas e-commerce (código, configuración e integraciones con terceros) tomando OWASP Top 10 como referencia, y construcción de las correcciones: eliminación de vulnerabilidades, endurecimiento (hardening) de configuraciones y seguridad por diseño integrada al ciclo de desarrollo.",
         "",
         "<strong>Buenas Prácticas:</strong> Aplicación de principios SOLID y arquitectura limpia en todo el stack, asegurando consistencia entre frontend, backend e integraciones de terceros."
       ]
@@ -213,7 +217,7 @@
         "",
         "<strong>Calidad y DevOps:</strong> Establecí estándares de calidad de código mediante una gestión avanzada de Git y GitHub. Implementé estrategias de ramificación (Git Flow), revisiones de código exhaustivas y flujos de trabajo colaborativos para sincronizar equipos distribuidos.",
         "",
-        "<strong>Mitigación de Incidente Crítico (DDoS):</strong> Respondí inmediatamente para solucionar un ataque DDoS en curso. Realicé análisis de tráfico e identifiqué el vector de ataque y configuré Cloudflare on-the-fly (Modo I'm Under Attack, Rate Limiting y WAF), logrando mitigar el 99% del tráfico malicioso y restablecer la disponibilidad del servicio en minutos."
+        "<strong>Mitigación de Incidente Crítico (DDoS):</strong> Respondí inmediatamente para solucionar un ataque DDoS en curso. Analicé el tráfico, identifiqué el vector de ataque y configuré Cloudflare on-the-fly (Modo I'm Under Attack, Rate Limiting y WAF), logrando mitigar el 99% del tráfico malicioso y restablecer la disponibilidad del servicio en minutos."
       ]
     },
     "job3": {
